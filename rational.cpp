@@ -34,9 +34,9 @@ void rational::simplify() {
   }
 }
 
-rational::rational(integer value) : num(value), denom(1) {}
+rational::rational(integer_t value) : num(value), denom(1) {}
 
-rational::rational(integer numerator, integer denominator)
+rational::rational(integer_t numerator, integer_t denominator)
     : num(numerator), denom(denominator) {
   if (denom == 0) {
     throw invalid_argument("Denominator must be non-zero.");

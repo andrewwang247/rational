@@ -18,11 +18,12 @@
  * Satisfies invariant that denominator is always positive.
  */
 class rational {
-  using integer = std::int64_t;
+ public:
+  using integer_t = std::int64_t;
 
  private:
-  integer num;
-  integer denom;
+  integer_t num;
+  integer_t denom;
 
   /**
    * @brief Reduces num and denom such that they are relatively prime.
@@ -42,7 +43,7 @@ class rational {
    *
    * @param value The value of the constructed rational.
    */
-  explicit rational(integer value);
+  explicit rational(integer_t value);
 
   /**
    * @brief Construct a rational given numerator and denominator.
@@ -50,7 +51,7 @@ class rational {
    * @param numerator The numerator.
    * @param denominator The denominator.
    */
-  rational(integer numerator, integer denominator);
+  rational(integer_t numerator, integer_t denominator);
 
   /**
    * @brief Copy constructor.
@@ -72,14 +73,14 @@ class rational {
    *
    * @return integer absolute value of numerator.
    */
-  integer numerator() const;
+  integer_t numerator() const;
 
   /**
    * @brief Unsigned value of the deminator. Relatively prime to numerator.
    *
    * @return integer absolute value of denominator.
    */
-  integer denominator() const;
+  integer_t denominator() const;
 
   /**
    * @brief Get approximate value of the rational.

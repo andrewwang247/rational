@@ -8,6 +8,7 @@
  * @copyright Copyright (c) 2022
  *
  */
+#include <cmath>
 #include <iostream>
 #include <numeric>
 #include <sstream>
@@ -19,6 +20,7 @@ using std::cerr;
 using std::cout;
 using std::ios_base;
 using std::runtime_error;
+using std::sqrt;
 using std::stringstream;
 
 namespace test {
@@ -79,6 +81,23 @@ int main() {
   test::op_equality();
   test::op_compare();
   test::op_write();
+
+  {
+    cout << "Approximation of Euler's constant via power series.\n";
+    rational approx_e(1);
+    for (rational::integer_t denom = 1, fac = 1; denom < 12; ++denom) {
+      approx_e += rational(1, (fac *= denom));
+    }
+    cout << "\te \u2248 " << approx_e << " \u2248 " << approx_e.value() << '\n';
+  }
+  {
+    cout << "Exploration of Zeno's paradox approaching 1.\n";
+    rational zeno(0);
+    for (rational::integer_t base = 1; base < 20; ++base) {
+      zeno += rational(1, 1 << base);
+    }
+    cout << "\t1 \u2248 " << zeno << " \u2248 " << zeno.value() << '\n';
+  }
 }
 
 void test::construct_integer() {
